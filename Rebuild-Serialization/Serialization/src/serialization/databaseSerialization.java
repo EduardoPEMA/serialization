@@ -35,39 +35,30 @@ public class databaseSerialization {
 
     }
   public void loadDB() throws IOException, ClassNotFoundException{
-      user u = new user();
-      
-      
-      try
-      {
-         inputUsers = new ObjectInputStream(new FileInputStream("users.txt"));
-          
-           while (inputUsers.available() > 0) {
-               u = (user) inputUsers.readObject();
-               System.out.println(u);
+      user u = null; 
+    try{   
+        ObjectInputStream inputUsers = new ObjectInputStream(new FileInputStream("users.txt"));
+        u = (user)inputUsers.readObject();
+         
+        while(u != null){
+            if(u instanceof user){
+                users.add(u);
+            }
+            u = (user) inputUsers.readObject();
                
-               
-               users.add(u);         
-               
-           }
-           
-          
-      }catch (Exception ex){}
+        }        
+    }catch (Exception ex){}  
   }
   
   void updateUsers() throws FileNotFoundException, IOException {
+    FileOutputStream clearFile = new FileOutputStream("users.txt");
+    outputUsers = new ObjectOutputStream(new FileOutputStream("users.txt", true));   
+         
       
-      try{
-            outputUsers = new ObjectOutputStream(new FileOutputStream("users.txt", true));
-            FileOutputStream clearFile = new FileOutputStream("users.txt");
-
-            for (user u : users) {
-                
-                outputUsers.writeObject(u);
-                System.out.println(u);
-            }
-            outputUsers.close();
-      }catch(FileNotFoundException ex){}
+    for (user u : users)
+    {
+        outputUsers.writeObject(u);         
+    } 
   }
   
   public void modifyUser(user user) throws IOException{

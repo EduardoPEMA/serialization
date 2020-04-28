@@ -306,7 +306,7 @@ public class viewSerialization extends javax.swing.JFrame {
         getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 90, 30));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/pngkey-removebg-preview (2).png"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 180, 270));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 220, 270));
 
         jLabel8.setFont(new java.awt.Font("Verdana", 2, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 153, 255));
