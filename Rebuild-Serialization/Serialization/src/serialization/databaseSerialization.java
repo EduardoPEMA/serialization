@@ -94,7 +94,7 @@ public class databaseSerialization {
         int i = 0;
         for (user u : users) {
 
-            if (u.getId() == id) {
+            if (u.getId() == null ? id == null : u.getId().equals(id)) {
                 users.remove(i);
                 break;
             }
@@ -108,6 +108,10 @@ public class databaseSerialization {
             return 0;
         }
         return Integer.parseInt(users.get(users.size() - 1).getId());
+    }
+ 
+ public ArrayList<user> getUsers() {
+        return users;
     }
     
     
